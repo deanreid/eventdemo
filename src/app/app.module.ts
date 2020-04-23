@@ -4,9 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { EventsListComponent } from './events/events-list.component';
+import { EventsThumbnailComponent } from './events/events-thumbnail.component'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EventsListComponent,
+    EventsThumbnailComponent
   ],
   imports: [
     BrowserModule,
