@@ -8,8 +8,8 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
       <!--<img [src]='event.imageUrl' alt={{event.name}} >-->
       <h2>{{event.name}}</h2>
       <div>Date: {{event.date}}</div>
-      <div [ngClass]="getStartTimeForClass()">
-       [ngSwitch]="event?.time">
+      <div [ngClass]="getStartTimeForClass()" [ngSwitch]="event?.time">
+       
       Time: {{event.time}}
       <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
       <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
