@@ -16,6 +16,7 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
 import { EventRouteDeactivator } from './events/create-event/event-route-deactivator.service';
 import { EventListResolver } from './events/events-list-resolver.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,7 @@ import { EventListResolver } from './events/events-list-resolver.service';
     CreateEventComponent,
     NavbarComponent,
     Error404Component
-    
+       
   ],
   imports: [
     BrowserModule,

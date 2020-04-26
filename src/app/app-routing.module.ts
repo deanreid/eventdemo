@@ -7,6 +7,7 @@ import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 import { EventRouteDeactivator } from './events/create-event/event-route-deactivator.service';
 import { EventListResolver } from './events/events-list-resolver.service';
+import { zip } from 'rxjs';
 
 //REMEMBER THE ORDER OF THE ROUTES MATTER
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'events', component: EventsListComponent, resolve: {events: EventListResolver} },
   { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator]},
   { path: '404', component: Error404Component},  
-  { path: '', redirectTo: '/events', pathMatch: 'full'}
+  { path: '', redirectTo: '/events', pathMatch: 'full'},
+  { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)}
+  // { path: 'user', loadChildren: './user.module#UserModule'}
 ];
 
 @NgModule({
