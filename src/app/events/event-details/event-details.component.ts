@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { EventService } from '../shared/event.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { IEvent } from '../shared/event.model';
 	
 	@Component ({
         //commented out since this will be it own view
@@ -14,7 +15,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 	})
 	
  export class EventDetailsComponent implements OnInit {   
-   event: any;
+   event: IEvent;
    id: number;
    @Output() eventClick: EventEmitter<any>= new EventEmitter();
 

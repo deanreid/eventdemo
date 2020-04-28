@@ -15,6 +15,8 @@ import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 import { EventRouteDeactivator } from './events/create-event/event-route-deactivator.service';
 import { EventListResolver } from './events/events-list-resolver.service';
+import { AuthService } from './user/auth.service';
+
 
 
 @NgModule({
@@ -32,12 +34,16 @@ import { EventListResolver } from './events/events-list-resolver.service';
     BrowserModule,
     AppRoutingModule
   ],
+  exports: [
+   NavbarComponent
+  ],
   providers: [
     EventService,
     ToastrService,
     EventRouteActivator,
     EventRouteDeactivator,
-    EventListResolver
+    EventListResolver,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

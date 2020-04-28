@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { IEvent } from './shared/event.model';
 
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
     <div [routerLink]="['/events',event.id]" class="well hoverwell thumbnail">
       <!--<img [src]='event.imageUrl' alt={{event.name}} >-->
       <h2>{{event.name}}</h2>
-      <div>Date: {{event.date}}</div>
+      <div>Date: {{event.date | date}}</div>
       <div [ngClass]="getStartTimeForClass()" [ngSwitch]="event?.time">
        
       Time: {{event.time}}
@@ -38,7 +39,7 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 })
 
 export class EventsThumbnailComponent implements OnInit {   
-   @Input() event: any;
+   @Input() event:IEvent;
    @Output() eventClick: EventEmitter<any>= new EventEmitter();
 
    constructor () {}

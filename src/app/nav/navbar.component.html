@@ -27,7 +27,9 @@
         <div class="navbar-header navbar-right">
           <ul class="nav navbar-nav">
             <li>
-              <a [routerLink]= "['/user/profile']">Welcome John</a>
+              <a *ngIf="!isLoggedIn" [routerLink]="['/user/login']" >Login</a>
+              <a *ngIf="isLoggedIn"[routerLink]= "['/user/profile']">
+                Welcome {{currentUser.firstName}}</a>
             </li>
           </ul>
         </div>
@@ -41,5 +43,5 @@
         </form>
       </div>
     </div>
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
   </div>
