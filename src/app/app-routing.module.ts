@@ -8,6 +8,7 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
 import { EventRouteDeactivator } from './events/create-event/event-route-deactivator.service';
 import { EventListResolver } from './events/events-list-resolver.service';
 import { zip } from 'rxjs';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
 
 //REMEMBER THE ORDER OF THE ROUTES MATTER
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
    canDeactivate: [EventRouteDeactivator]},
   { path: 'events', component: EventsListComponent, resolve: {events: EventListResolver} },
   { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator]},
+  { path: 'events/session/new', component:CreateSessionComponent},
   { path: '404', component: Error404Component},  
   { path: '', redirectTo: '/events', pathMatch: 'full'},
   { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)}
