@@ -5,6 +5,7 @@ import { IEvent } from './event.model';
 @Injectable()
     
 export class EventService {
+  
    eventsData: IEvent[] = [
         {
           id: 1,
@@ -326,6 +327,11 @@ export class EventService {
       event.id=999
       event.sessions=[]
       this.eventsData.push(event)
+    }
+
+    updateEvent(event: IEvent) {
+     let index = this.eventsData.findIndex(x=>x.id == event.id)
+     this.eventsData[index] = event
     }
     
 }
